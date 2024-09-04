@@ -1,13 +1,14 @@
 <nav>
     <ul>
-            <h3>Message </h3>
+        <% for (let i = 0; i < message.length; i++) { %>
+            <h3>Message <%=[i]%></h3>
             <li>
-                <p><%= message%></p>
-                <p><%=  %></p>
-                <p><%= %></p>
-                <a href="/message"><button>Open</button></a>
+                <p><%= message[i].text %></p>
+                <p><%= message[i].user %></p>
+                <p><%= message[i].added %></p>
+                
             </li>
-      
+       <% } %>
     </ul>
     <a href="/new">
         <span>Create new User ==></span>

@@ -49,10 +49,10 @@ const messages  = [
 
   app.get('/message/:i', (req, res) => {
     const id = req.params;
-    
-    message = messages[id.i]
+    message.pop();
+    message.push(messages[id.i])
   res.render('message', { title: 'Message Details', message: message });
-  console.log(message)
+  console.log(messages)
   })
 
  
