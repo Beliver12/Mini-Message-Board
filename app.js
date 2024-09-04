@@ -24,11 +24,11 @@ const messages  = [
     }
   ];
  
-  const message = [{}];
+  let message = [];
  
 
   app.get("/", (req, res) => {
-    res.render("index", {title: "Mini Messageboard", messages: messages, messageid:messageid});
+    res.render("index", {title: "Mini Messageboard", messages: messages});
   });
 
   app.get("/new", (req, res) => {
@@ -36,21 +36,26 @@ const messages  = [
   })
 
   app.get("/message", (req, res) => {
-    res.render("message", {messages:messages, message: messages[id]})
+    res.render("message", {messages:messages, message:message})
+    
+  })
+
+
+  app.post('/new', (req, res) => {
+    messages.push({ text: req.body.message, user: req.body.authorName, added: new Date()});
+    console.log(messages)
+    res.redirect("/")
   })
 
   app.get('/message/:i', (req, res) => {
     const id = req.params;
-  res.render('message', { title: 'Message Details', message: messages[id] });
-  console.log(messages)
+    
+    message = messages[id.i]
+  res.render('message', { title: 'Message Details', message: message });
+  console.log(message)
   })
 
-  app.post('/new', (req, res) => {
-    messages.push({ text: req.body.text, user: req.body.user, added: new Date()});
-    console.log(req.body)
-    res.redirect("/")
-  })
-
+ 
   
   const PORT = 8000;
   app.listen(PORT, () => console.log(`listening on port ${PORT}!`));

@@ -8,9 +8,9 @@
             <% for (let i = 0; i < messages.length; i++) { %>
                 <h3>Message <%=[i]%></h3>
                 <li>
-                    <p id="text"><%= messages[i].text %></p>
-                    <p id="user"><%= messages[i].user %></p>
-                    <p id="date"><%= messages[i].added %></p>
+                    <p><%= messages[i].text %></p>
+                    <p><%= messages[i].user %></p>
+                    <p><%= messages[i].added %></p>
                     
                     <a href="/message/<%=[i]%>"  id=<%=[i]%>><button>Open</button></a>
                 </li>
