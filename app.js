@@ -2,6 +2,7 @@ const path = require("node:path");
 const express = require('express');
 const app = express();
 
+
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 
@@ -57,5 +58,5 @@ const messages  = [
 
  
   
-  const PORT = 8000;
+  const PORT = 3000;
   app.listen(PORT, () => console.log(`listening on port ${PORT}!`));
